@@ -16,5 +16,20 @@ namespace Bar_Code_Generator
         {
             InitializeComponent();
         }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            string barCode = txbxGenerate.Text;
+            try
+            {
+                Zen.Barcode.Code128BarcodeDraw brCode = 
+                    Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
+                pictureBox1.Image = brCode.Draw(barCode, 60);
+            }
+            catch (Exception)
+            {
+              
+            }
+        }
     }
 }
